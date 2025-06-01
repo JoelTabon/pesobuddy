@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Smart Financial Tools | Compound Interest & Fund Allocation Calculators
+    </title>
+    <meta
+      name="description"
+      content="Take control of your finances with our free tools. Calculate compound interest, allocate your remaining funds wisely, and plan smarter with easy-to-use financial calculators designed for Filipinos.
+"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <link rel="icon" href="favicon-v2.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo">PesoBuddy</a>
+        <button class="nav-toggle" aria-label="Open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="../articles/index.html" class="active">Articles</a></li>
+          <li><a href="../tools/index.html">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Calculators</h1>
+        </div>
+      </section>
+      <section id="calculator">
+        <div class="section-header">
+          <h2>Compound Interest Calculator</h2>
+          <p>
+            See how your money can grow over time with the power of compound
+            interest
+          </p>
+        </div>
+        <div class="calculator">
+          <form class="calculator-form" id="calculatorForm">
+            <div class="input-group">
+              <label for="principal">Initial Amount (₱)</label>
+              <input
+                type="number"
+                id="principal"
+                placeholder="e.g. 50000"
+                min="0"
+                step="100"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="monthlyContribution">Monthly Contribution (₱)</label>
+              <input
+                type="number"
+                id="monthlyContribution"
+                placeholder="e.g. 5000"
+                min="0"
+                step="100"
+              />
+            </div>
+            <div class="input-group">
+              <label for="interestRate">Annual Interest Rate (%)</label>
+              <input
+                type="number"
+                id="interestRate"
+                placeholder="e.g. 6.5"
+                min="0"
+                max="100"
+                step="0.1"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="years">Number of Years</label>
+              <input
+                type="number"
+                id="years"
+                placeholder="e.g. 10"
+                min="1"
+                max="50"
+                required
+              />
+            </div>
+          </form>
+          <button type="submit" form="calculatorForm" class="calculate-btn">
+            Calculate My Future Wealth
+          </button>
+          <div class="result" id="result"></div>
+        </div>
+
+        <div class="section-header">
+          <h2>Remaining Funds Allocation Calculator</h2>
+          <p>
+            See how much to allocate for Emergency Funds, Investments, and
+            Savings. Use the 50-30-20 rule as a guide.
+          </p>
+        </div>
+        <div class="calculator">
+          <div class="input-group">
+            <label for="fundsAfterExpenses"></label>
+            <input
+              type="number"
+              id="fundsAfterExpenses"
+              name="fundsAfterExpenses"
+              min="0"
+              step="any"
+              placeholder="Enter amount e.g. 5000"
+              inputmode="decimal"
+              required
+            />
+          </div>
+          <div class="allocation-grid">
+            <div class="grid-labels">
+              <label for="emergencyPercent">Emergency Funds</label>
+              <label for="investmentsPercent">Investments</label>
+              <label for="savingsPercent">Savings</label>
+            </div>
+            <div class="grid-inputs">
+              <input
+                type="number"
+                id="emergencyPercent"
+                name="emergencyPercent"
+                min="0"
+                max="100"
+                step="any"
+                placeholder="Enter the percentage %"
+                inputmode="decimal"
+              />
+              <input
+                type="number"
+                id="investmentsPercent"
+                name="investmentsPercent"
+                min="0"
+                max="100"
+                step="any"
+                placeholder="Enter the percentage %"
+                inputmode="decimal"
+              />
+              <input
+                type="number"
+                id="savingsPercent"
+                name="savingsPercent"
+                min="0"
+                max="100"
+                step="any"
+                placeholder="Enter the percentage %"
+                inputmode="decimal"
+              />
+            </div>
+            <div class="grid-results">
+              <input
+                type="text"
+                id="emergencyResult"
+                value="0"
+                readonly
+                disabled
+                style="background: #f3fcf7; color: #17643b; font-weight: bold"
+              />
+              <input
+                type="text"
+                id="investmentsResult"
+                value="0"
+                readonly
+                disabled
+                style="background: #f3fcf7; color: #17643b; font-weight: bold"
+              />
+              <input
+                type="text"
+                id="savingsResult"
+                value="0"
+                readonly
+                disabled
+                style="background: #f3fcf7; color: #17643b; font-weight: bold"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        &copy; <span id="year"></span> PesoBuddy.com | Empowering Filipino
+        Financial Success
+      </p>
+      <p>
+        The content provided on this website is for educational and
+        informational purposes only and should not be considered as personalized
+        financial, investment, or legal advice. Always consult a licensed
+        financial advisor or professional before making financial decisions.
+      </p>
+    </footer>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/nav.js"></script>
+    <script src="../scripts/faqs.js"></script>
+    <script src="../scripts/article-calc.js"></script>
+  </body>
+</html>

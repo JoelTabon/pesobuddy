@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Smart Financial Tools | Compound Interest & Fund Allocation Calculators
+    </title>
+    <meta
+      name="description"
+      content="Take control of your finances with our free tools. Calculate compound interest, allocate your remaining funds wisely, and plan smarter with easy-to-use financial calculators designed for Filipinos.
+"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/article.css" />
+    <link rel="stylesheet" href="css/calculator.css" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">PesoBuddy</div>
+        <button class="nav-toggle" aria-label="Open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html" class="active">Articles</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Calculators</h1>
+        </div>
+      </section>
+      <section id="calculator">
+        <div class="calc-container">
+          <h2 class="calc-header">Monthly Budget Allocator</h2>
+          <form id="budgetForm" class="calc-form">
+            <div class="form-group">
+              <label for="income">Monthly Income (₱)</label>
+              <input type="number" id="income" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="expenses">Monthly Expenses (₱)</label>
+              <input type="number" id="expenses" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="rule"
+                >Budget Rule (%)
+                <span class="hint">(e.g. 50-30-10-10)</span></label
+              >
+              <input
+                type="text"
+                id="rule"
+                value="50-30-10-10"
+                pattern="^(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})$"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-primary">Calculate</button>
+          </form>
+          <div id="result" class="calc-result" style="display: none"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        &copy; <span id="year"></span> PesoBuddy.com | Empowering Filipino
+        Financial Success
+      </p>
+      <p>
+        The content provided on this website is for educational and
+        informational purposes only and should not be considered as personalized
+        financial, investment, or legal advice. Always consult a licensed
+        financial advisor or professional before making financial decisions.
+      </p>
+    </footer>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/faqs.js"></script>
+    <script src="scripts/article-calc.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('budgetForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const income =
+            parseFloat(document.getElementById('income').value) || 0;
+          const expenses =
+            parseFloat(document.getElementById('expenses').value) || 0;
+          const ruleInput = document.getElementById('rule').value.trim();
+
+          const ruleMatch = ruleInput.match(
+            /^(\d{1,2})-(\d{1,2})-(\d{1,2})-(\d{1,2})$/
+          );
+          if (!ruleMatch) {
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<span class="error">Invalid rule format. Use e.g. 50-30-10-10.</span>`;
+            return;
+          }
+
+          const [_, emergency, invest, savings, leisure] =
+            ruleMatch.map(Number);
+          const totalPercent = emergency + invest + savings + leisure;
+          if (totalPercent !== 100) {
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<span class="error">Percentages must add up to 100.</span>`;
+            return;
+          }
+
+          const allocatable = income - expenses;
+          if (allocatable < 0) {
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<span class="error">Expenses exceed income.</span>`;
+            return;
+          }
+
+          const allocations = {
+            'Emergency Fund': allocatable * (emergency / 100),
+            Investments: allocatable * (invest / 100),
+            Savings: allocatable * (savings / 100),
+            'Leisure/Personal': allocatable * (leisure / 100),
+          };
+
+          resultDiv.style.display = 'block';
+          resultDiv.innerHTML = `
+      <h3>Allocation Result</h3>
+      <p>Allocatable Amount: <strong>₱${allocatable.toLocaleString()}</strong></p>
+      <ul>
+        <li>Emergency Fund: <strong>₱${allocations[
+          'Emergency Fund'
+        ].toLocaleString(undefined, { maximumFractionDigits: 2 })}</strong></li>
+        <li>Investments: <strong>₱${allocations['Investments'].toLocaleString(
+          undefined,
+          { maximumFractionDigits: 2 }
+        )}</strong></li>
+        <li>Savings: <strong>₱${allocations['Savings'].toLocaleString(
+          undefined,
+          { maximumFractionDigits: 2 }
+        )}</strong></li>
+        <li>Leisure/Personal: <strong>₱${allocations[
+          'Leisure/Personal'
+        ].toLocaleString(undefined, { maximumFractionDigits: 2 })}</strong></li>
+      </ul>
+    `;
+        });
+      });
+    </script>
+  </body>
+</html>
