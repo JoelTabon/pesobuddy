@@ -1,4 +1,8 @@
+// For dynamic year in footer
+
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// End of For dynamic year in footer
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -33,30 +37,32 @@ document
       return;
     }
 
-    // Monthly interest rate
     const monthlyRate = annualRate / 12;
     const totalMonths = years * 12;
-
-    // Future value of initial principal
-    const futureValuePrincipal = principal * Math.pow(1 + annualRate, years);
-
-    // Future value of monthly contributions (annuity)
-    let futureValueContributions = 0;
-    if (monthlyContribution > 0 && monthlyRate > 0) {
-      futureValueContributions =
-        monthlyContribution *
-        ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
-    } else if (monthlyContribution > 0) {
-      futureValueContributions = monthlyContribution * totalMonths;
-    }
-
-    const totalFutureValue = futureValuePrincipal + futureValueContributions;
-    const totalContributions = principal + monthlyContribution * totalMonths;
-    const totalInterest = totalFutureValue - totalContributions;
-
-    // Deduct 20% withholding tax on interest earned
+    let balance = principal;
+    let totalContributions = principal;
+    let totalGrossInterest = 0;
+    let totalNetInterest = 0;
     const taxRate = 0.2;
-    const interestAfterTax = totalInterest * (1 - taxRate);
+
+    for (let month = 1; month <= totalMonths; month++) {
+      // Calculate gross interest for this month
+      const grossInterest = balance * monthlyRate;
+      // Deduct 20% tax
+      const tax = grossInterest * taxRate;
+      const netInterest = grossInterest - tax;
+
+      // Add net interest to balance
+      balance += netInterest;
+      // Add monthly contribution after interest is applied
+      if (monthlyContribution > 0) {
+        balance += monthlyContribution;
+        totalContributions += monthlyContribution;
+      }
+
+      totalGrossInterest += grossInterest;
+      totalNetInterest += netInterest;
+    }
 
     // Display results
     const resultDiv = document.getElementById('result');
@@ -65,7 +71,7 @@ document
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
                 <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
                     <strong>Total Future Value</strong><br>
-                    <span style="font-size: 2rem;">₱${totalFutureValue.toLocaleString(
+                    <span style="font-size: 2rem;">₱${balance.toLocaleString(
                       'en-PH',
                       { maximumFractionDigits: 0 }
                     )}</span>
@@ -78,12 +84,12 @@ document
                     )}</span>
                 </div>
                 <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
-                    <strong>Total Interest Earned (after 20% withholding tax)</strong><br>
-                    <span style="font-size: 2rem; color: #2c3e50;">₱${interestAfterTax.toLocaleString(
+                    <strong>Total Interest Earned</strong><br>
+                    <span style="font-size: 2rem; color: #2c3e50;">₱${totalNetInterest.toLocaleString(
                       'en-PH',
                       { maximumFractionDigits: 0 }
                     )}</span>
-                    <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.25rem;">* Amount shown is after withholding tax deduction</p>
+                    <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 0.25rem;">* Amount shown is after monthly withholding tax deduction</p>
                 </div>
             </div>
             <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
@@ -99,7 +105,7 @@ document
           })} monthly contributions`
         : ''
     }
-    will grow to ₱${totalFutureValue.toLocaleString('en-PH', {
+    will grow to ₱${balance.toLocaleString('en-PH', {
       maximumFractionDigits: 0,
     })} at ${(annualRate * 100).toFixed(1)}% annual interest.
 </p>
@@ -122,6 +128,8 @@ document.querySelector('.calculate-btn').addEventListener('click', function () {
     btn.style.opacity = '1';
   }, 1000);
 });
+
+// End of Compound Interest Calculator
 
 // Add entrance animations on scroll
 const observerOptions = {
