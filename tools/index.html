@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Smart Financial Tools | Compound Interest & Fund Allocation Calculators
+      Financial Tools for Filipinos | Budget & Interest Calculators | PesoBuddy
     </title>
     <meta
       name="description"
-      content="Take control of your finances with our free tools. Calculate compound interest, allocate your remaining funds wisely, and plan smarter with easy-to-use financial calculators designed for Filipinos.
+      content="Explore PesoBuddy’s free financial tools—budget planners, interest calculators, and more. Built for Filipinos to manage savings, spending, and financial goals with ease.
 "
     />
     <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/article.css" />
-    <link rel="icon" href="https://pesobuddy.com/favicon-v2.png" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="https://pesobuddy.com/favicon-v2.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header>
@@ -32,157 +35,77 @@
     <main class="container">
       <section class="hero">
         <div class="hero-content">
-          <h1>Calculators</h1>
+          <h1>Smart Financial Tools for Every Juan</h1>
         </div>
       </section>
       <section id="calculator">
         <div class="section-header">
-          <h2>Compound Interest Calculator</h2>
+          <h2>Tools to Help You Budget, Save, and Grow Your Money</h2>
           <p>
-            See how your money can grow over time with the power of compound
-            interest
+            Welcome to PesoBuddy’s toolbox—your go-to spot for simple, powerful
+            calculators and resources designed to help you take control of your
+            finances. Whether you’re planning your savings, tracking your
+            progress, or figuring out how much interest you’ll earn, our tools
+            are made with the Filipino in mind. No jargon, no stress—just
+            easy-to-use, practical tools that work for you.
           </p>
-        </div>
-        <div class="calculator">
-          <form class="calculator-form" id="calculatorForm">
-            <div class="input-group">
-              <label for="principal">Initial Amount (₱)</label>
-              <input
-                type="number"
-                id="principal"
-                placeholder="e.g. 50000"
-                min="0"
-                step="100"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <label for="monthlyContribution">Monthly Contribution (₱)</label>
-              <input
-                type="number"
-                id="monthlyContribution"
-                placeholder="e.g. 5000"
-                min="0"
-                step="100"
-              />
-            </div>
-            <div class="input-group">
-              <label for="interestRate">Annual Interest Rate (%)</label>
-              <input
-                type="number"
-                id="interestRate"
-                placeholder="e.g. 6.5"
-                min="0"
-                max="100"
-                step="0.1"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <label for="years">Number of Years</label>
-              <input
-                type="number"
-                id="years"
-                placeholder="e.g. 10"
-                min="1"
-                max="50"
-                required
-              />
-            </div>
-          </form>
-          <button type="submit" form="calculatorForm" class="calculate-btn">
-            Calculate My Future Wealth
-          </button>
-          <div class="result" id="result"></div>
         </div>
 
-        <div class="section-header">
-          <h2>Remaining Funds Allocation Calculator</h2>
-          <p>
-            See how much to allocate for Emergency Funds, Investments, and
-            Savings. Use the 50-30-20 rule as a guide.
-          </p>
-        </div>
-        <div class="calculator">
-          <div class="input-group">
-            <label for="fundsAfterExpenses"></label>
-            <input
-              type="number"
-              id="fundsAfterExpenses"
-              name="fundsAfterExpenses"
-              min="0"
-              step="any"
-              placeholder="Enter amount e.g. 5000"
-              inputmode="decimal"
-              required
-            />
-          </div>
-          <div class="allocation-grid">
-            <div class="grid-labels">
-              <label for="emergencyPercent">Emergency Funds</label>
-              <label for="investmentsPercent">Investments</label>
-              <label for="savingsPercent">Savings</label>
+        <section id="feature-articles" class="articles-section">
+          <div class="articles-grid">
+            <div class="article-card">
+              <img
+                src="../images/compound-calculator.png"
+                alt="Article 3"
+                class="article-image"
+              />
+              <div class="article-content">
+                <h3 class="article-title">Compound Calculator</h3>
+                <p class="article-desc">
+                  Calculate how your money grows over time with our easy-to-use
+                  compound interest calculator for Filipinos.
+                </p>
+                <a href="/tools/compound-calculator.html" class="read-more"
+                  >Try Now →</a
+                >
+              </div>
             </div>
-            <div class="grid-inputs">
-              <input
-                type="number"
-                id="emergencyPercent"
-                name="emergencyPercent"
-                min="0"
-                max="100"
-                step="any"
-                placeholder="Enter the percentage %"
-                inputmode="decimal"
+            <div class="article-card">
+              <img
+                src="../images/budget-calculator.png"
+                alt="Article 1"
+                class="article-image"
               />
-              <input
-                type="number"
-                id="investmentsPercent"
-                name="investmentsPercent"
-                min="0"
-                max="100"
-                step="any"
-                placeholder="Enter the percentage %"
-                inputmode="decimal"
-              />
-              <input
-                type="number"
-                id="savingsPercent"
-                name="savingsPercent"
-                min="0"
-                max="100"
-                step="any"
-                placeholder="Enter the percentage %"
-                inputmode="decimal"
-              />
+              <div class="article-content">
+                <h3 class="article-title">Budget Calculator</h3>
+                <p class="article-desc">
+                  Plan your monthly expenses wisely and take control of your
+                  finances with our smart budget calculator.
+                </p>
+                <a href="/tools/budget-calculator.html" class="read-more"
+                  >Try Now →</a
+                >
+              </div>
             </div>
-            <div class="grid-results">
-              <input
-                type="text"
-                id="emergencyResult"
-                value="0"
-                readonly
-                disabled
-                style="background: #f3fcf7; color: #17643b; font-weight: bold"
+            <div class="article-card">
+              <img
+                src="../images/interest-calculator.png"
+                alt="Article 2"
+                class="article-image"
               />
-              <input
-                type="text"
-                id="investmentsResult"
-                value="0"
-                readonly
-                disabled
-                style="background: #f3fcf7; color: #17643b; font-weight: bold"
-              />
-              <input
-                type="text"
-                id="savingsResult"
-                value="0"
-                readonly
-                disabled
-                style="background: #f3fcf7; color: #17643b; font-weight: bold"
-              />
+              <div class="article-content">
+                <h3 class="article-title">Interest Calculator</h3>
+                <p class="article-desc">
+                  Easily compute how much interest you’ll earn from your savings
+                  or deposits with this calculator.
+                </p>
+                <a href="/tools/interest-calculator.html" class="read-more"
+                  >Try Now →</a
+                >
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
     </main>
     <footer>
