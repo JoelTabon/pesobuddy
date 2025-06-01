@@ -6,17 +6,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://pesobuddy.com/articles.html</loc>
+    <loc>https://pesobuddy.com/articles/index.html</loc>
     <lastmod>2025-05-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://pesobuddy.com/emergency-fund.html</loc>
+    <loc>https://pesobuddy.com/articles/emergency-fund.html</loc>
     <lastmod>2025-05-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pesobuddy.com/tools.html</loc>
+    <loc>https://pesobuddy.com/articles/digital-banks.html</loc>
+    <lastmod>2025-05-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pesobuddy.com/articles/how-to-budget.html</loc>
+    <lastmod>2025-05-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pesobuddy.com/tools/index.html</loc>
     <lastmod>2025-05-29</lastmod>
     <priority>0.8</priority>
   </url>
