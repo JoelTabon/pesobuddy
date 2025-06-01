@@ -391,6 +391,16 @@ section {
   animation: slideUp 0.5s ease-out;
 }
 
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.7em;
+  font-size: 1.1em;
+}
+.result-row span:last-child {
+  font-weight: 600;
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
