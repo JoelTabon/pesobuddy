@@ -261,6 +261,34 @@
           </div>
         </div>
       </section>
+      <section id="newsletter" class="newsletter-section">
+        <div class="newsletter-container">
+          <h2>📬 Get Money Tips, the PesoBuddy Way</h2>
+          <p>
+            No spam. Just smart, Pinoy-friendly advice straight to your inbox.
+          </p>
+          <form
+            class="newsletter-form"
+            id="newsletterForm"
+            autocomplete="off"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScjdCyk8XT1lVYn5PScPW7iqDABLujgIXHSmA0U8xZEvRgRcQ/formResponse"
+            method="POST"
+            target="hidden_iframe"
+          >
+            <input
+              type="email"
+              name="entry.548453914"
+              class="newsletter-input"
+              placeholder="Enter your email"
+              required
+            />
+            <input type="hidden" name="date" id="newsletterDate" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+          <iframe name="hidden_iframe" style="display: none"></iframe>
+          <div class="newsletter-message" id="newsletterMessage"></div>
+        </div>
+      </section>
     </main>
     <footer>
       <p>
@@ -278,5 +306,6 @@
     <script src="../scripts/nav.js"></script>
     <script src="../scripts/faqs.js"></script>
     <script src="../scripts/article-calc.js"></script>
+    <script src="../scripts/newsletter.js"></script>
   </body>
 </html>
