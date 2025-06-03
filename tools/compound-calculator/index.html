@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="canonical"
+      href="https://pesobuddy.com/tools/compound-calculator/"
+    />
+    <title>
+      Compound Interest Calculator Philippines | Grow Your Savings Faster |
+      PesoBuddy
+    </title>
+    <meta
+      name="description"
+      content="Use PesoBuddy’s free compound interest calculator to see how your savings grow over time. Perfect for Filipino savers looking to plan smart and earn more.
+"
+    />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link
+      rel="icon"
+      href="https://pesobuddy.com/favicon-v2.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/" class="logo">PesoBuddy</a>
+        <button class="nav-toggle" aria-label="Open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="../../articles/">Articles</a></li>
+          <li><a href="../../tools/" class="active">Tools</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Compound Interest Calculator for Smart Filipino Savers</h1>
+        </div>
+      </section>
+      <section id="calculator">
+        <div class="section-header">
+          <h2>See How Your Money Grows Over Time</h2>
+          <p>
+            Planning to grow your savings? This compound interest calculator
+            helps you estimate how much your money can earn over time with
+            regular deposits and interest. Whether you're saving in a digital
+            bank or investing for the future, it's a smart way to forecast your
+            potential returns—effortlessly and accurately.
+          </p>
+        </div>
+
+        <div class="calculator">
+          <form class="calculator-form" id="calculatorForm">
+            <div class="input-group">
+              <label for="principal">Initial Amount (₱)</label>
+              <input
+                type="number"
+                id="principal"
+                placeholder="e.g. 50000"
+                min="0"
+                step="100"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="monthlyContribution">Monthly Contribution (₱)</label>
+              <input
+                type="number"
+                id="monthlyContribution"
+                placeholder="e.g. 5000"
+                min="0"
+                step="100"
+              />
+            </div>
+            <div class="input-group">
+              <label for="interestRate">Annual Interest Rate (%)</label>
+              <input
+                type="number"
+                id="interestRate"
+                placeholder="e.g. 6.5"
+                min="0"
+                max="100"
+                step="0.1"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="years">Number of Years</label>
+              <input
+                type="number"
+                id="years"
+                placeholder="e.g. 10"
+                min="1"
+                max="50"
+                required
+              />
+            </div>
+          </form>
+          <button type="submit" form="calculatorForm" class="calculate-btn">
+            Calculate My Future Wealth
+          </button>
+          <div class="result" id="result"></div>
+        </div>
+      </section>
+      <section id="newsletter" class="newsletter-section">
+        <div class="newsletter-container">
+          <h2>📬 Get Money Tips, the PesoBuddy Way</h2>
+          <p>
+            No spam. Just smart, Pinoy-friendly advice straight to your inbox.
+          </p>
+          <form
+            class="newsletter-form"
+            id="newsletterForm"
+            autocomplete="off"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScjdCyk8XT1lVYn5PScPW7iqDABLujgIXHSmA0U8xZEvRgRcQ/formResponse"
+            method="POST"
+            target="hidden_iframe"
+          >
+            <input
+              type="email"
+              name="entry.548453914"
+              class="newsletter-input"
+              placeholder="Enter your email"
+              required
+            />
+            <input type="hidden" name="date" id="newsletterDate" />
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+          <iframe name="hidden_iframe" style="display: none"></iframe>
+          <div class="newsletter-message" id="newsletterMessage"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        &copy; <span id="year"></span> PesoBuddy.com | Empowering Filipino
+        Financial Success
+      </p>
+      <p>
+        The content provided on this website is for educational and
+        informational purposes only and should not be considered as personalized
+        financial, investment, or legal advice. Always consult a licensed
+        financial advisor or professional before making financial decisions.
+      </p>
+    </footer>
+    <script src="../../scripts/main.js"></script>
+    <script src="../../scripts/nav.js"></script>
+    <script src="../../scripts/newsletter.js"></script>
+  </body>
+</html>
